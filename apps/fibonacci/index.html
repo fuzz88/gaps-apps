@@ -12,11 +12,10 @@
             } else {
                alarm("WebAssembly is not supported in your browser")
             }
-
+		let numbers = []
         function add_number(next) {
-        				let p = document.createElement("p")
-        				p.innerHTML = next;
-        				document.getElementById("results").appendChild(p)
+        				numbers.push(next)
+        				document.getElementById("results").innerHTML = numbers.join(", ")
         			}
         </script>
     </head>
