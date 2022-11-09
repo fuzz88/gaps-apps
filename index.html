@@ -23,7 +23,7 @@
 			</div>
 			<div class="window-body">
 				<img src="img/xp.jpg">
-				<div style="position: absolute; top: 64px; left: 32px">
+				<div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'">
 					<img height="42px" width="42px" src="apps/gears/engineering.png">
 					<label for="glxgears"><b>webglgears</b></label>
 				</div>
@@ -31,6 +31,23 @@
 					<img height="42px" width="42px" src="apps/fibonacci/fibonacci.png">
 					<label for="fibonacci"><b>fibonacci</b></label>
 				</div>
+				<div style="position: absolute; top: 96px; left: 224px">
+					<img height="42px" width="42px" src="apps/donut/donut.png">
+					<label for="donut"><b>Donut</b></label>
+				</div>
+				<div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
+					<div class="title-bar">
+						<div class="title-bar-text">
+							glxgears
+					  	</div>
+			  			<div class="title-bar-controls">
+   							<button onClick="document.getElementById('glxgears').style.display = 'none' ;" aria-label="Close"></button>
+  			  			</div>
+					</div>
+					<div class="window-body">
+						<iframe src="apps/gears/glxgears.html"></iframe>
+					</div>
+			    </div>
 				<div id="app" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
 					<div class="title-bar">
 						<div class="title-bar-text">
@@ -43,7 +60,7 @@
 					<div class="window-body">
 					  <p><em>Thank you for visiting us.</em></p>
 					  <section class="field-row" style="justify-content: flex-end">
-						  <button onClick="window.location='https://oschepkov.ru'">OK</button>
+						  <button onClick="document.getElementById('app').style.display = 'none';">OK</button>
 					  </section>
 					</div>
 			    </div>
