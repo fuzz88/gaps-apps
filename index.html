@@ -23,7 +23,7 @@
 			</div>
 			<div class="window-body">
 				<img src="img/xp.jpg">
-				<div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'">
+				<div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').focus();">
 					<img height="42px" width="42px" src="apps/gears/engineering.png">
 					<label for="glxgears"><b>webglgears</b></label>
 				</div>
@@ -45,7 +45,8 @@
   			  			</div>
 					</div>
 					<div class="window-body">
-						<iframe src="apps/gears/glxgears.html"></iframe>
+						<iframe id="gears_iframe" src="apps/gears/glxgears.html"></iframe>
+						<p>Use arrows.</p>
 					</div>
 			    </div>
 				<div id="app" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
