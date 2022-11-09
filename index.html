@@ -27,26 +27,39 @@
 			</div>
 			<div class="window-body">
 				<img src="img/xp.jpg">
-				<div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').focus();">
+				<div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').src = 'apps/gears/glxgears.html'; document.getElementById('gears_iframe').focus();">
 					<img height="42px" width="42px" src="apps/gears/engineering.png">
 					<label for="glxgears"><b>webglgears</b></label>
 				</div>
-				<div style="position: absolute; top: 128px; left: 160px">
+				<div style="position: absolute; top: 128px; left: 160px" onClick="document.getElementById('fib').style.display = 'block'; document.getElementById('fib_iframe').src = 'apps/fibonacci/index.html';">
 					<img height="42px" width="42px" src="apps/fibonacci/fibonacci.png">
 					<label for="fibonacci"><b>fibonacci</b></label>
 				</div>
 				<div style="position: absolute; top: 96px; left: 224px">
 					<img height="42px" width="42px" src="apps/donut/donut.png">
-					<label for="donut"><b>Donut</b></label>
+					<label style="color: #9f9fa9" for="donut"><b>Donut</b></label>
 				</div>
 				<div style="position: absolute; top: 70%; left: 65%" onClick="window.location.href='https://github.com/gaps-apps/about_us';">
 					<img height="42px" width="42px" src="apps/github/github.png">
-					<label for="donut"><b>GitHub</b></label>
+					<label for="github"><b>GitHub</b></label>
 				</div>
 				<div style="position: absolute; top: 70%; left: 80%">
 					<img height="42px" width="42px" src="apps/sendmail/gmail.png" onClick="window.location.href='mailto:ivan@oschepkov.ru?subject=G.apps';">
-					<label for="donut"><b>Contact</b></label>
+					<label for="contact"><b>Contact</b></label>
 				</div>
+				<div id="fib" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
+					<div class="title-bar">
+						<div class="title-bar-text">
+							go-fibonacci-wasm	
+					  	</div>
+			  			<div class="title-bar-controls">
+   							<button onClick="document.getElementById('fib').style.display = 'none' ;" aria-label="Close"></button>
+  			  			</div>
+					</div>
+					<div class="window-body">
+						<iframe id="fib_iframe" src=""></iframe>
+					</div>
+			    </div>
 				<div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
 					<div class="title-bar">
 						<div class="title-bar-text">
@@ -57,11 +70,11 @@
   			  			</div>
 					</div>
 					<div class="window-body">
-						<iframe id="gears_iframe" src="apps/gears/glxgears.html"></iframe>
+						<iframe id="gears_iframe" src=""></iframe>
 						<p>Use arrows.</p>
 					</div>
 			    </div>
-				<div id="app" class="window" style="pointer-events: all; min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
+				<div id="app" class="window" style="display: none; pointer-events: all; min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
 					<div class="title-bar">
 						<div class="title-bar-text">
 							Message of the Day 
@@ -88,17 +101,18 @@
 			
 					storage.setItem("visited", "");
 					storage.setItem("unix_time_of_visit", Date.now());
+					document.getElementById("app").style.display = "block";
 			}
 		else {
 					let unix_time_of_visit = storage.getItem("unix_time_of_visit");
 					let current_unix_time = Date.now()
-					if (current_unix_time - unix_time_of_visit <= 24 * 3600) {
-								document.getElementById("app").style.display="none";
-						}
-					else {
+					if (current_unix_time - unix_time_of_visit >= 24 * 3600) {
+								document.getElementById("app").style.display="block";
 								storage.setItem("unix_time_of_visit", Date.now());
 						}
-
+					else {
+								document.getElementById("system").style = "pointer-events: all";
+							}
 			}
 	</script>
 </body>

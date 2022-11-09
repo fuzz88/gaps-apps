@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="wasm_exec.js"></script>
+        <script>
+            if (WebAssembly) {
+                 const go = new Go();
+                 WebAssembly.instantiateStreaming(fetch("fib.wasm"), go.importObject).then((result) => {
+                    go.run(result.instance);
+                 });
+            } else {
+               alarm("WebAssembly is not supported in your browser")
+            }
+
+        function add_number(next) {
+        				let p = document.createElement("p")
+        				p.innerHTML = next;
+        				document.getElementById("results").appendChild(p)
+        			}
+        </script>
+    </head>
+    <body id="results"></body>
+</html>
