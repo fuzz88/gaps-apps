@@ -21,7 +21,7 @@ func main() {
 	c := make(chan int)
 	quit := make(chan int)
 	go func() {
-		for i := 0; i < 42; i++ {
+		for i := 0; i < 39; i++ {
 			js.Global().Call("add_number", <-c);
 		}
 		quit <- 0
