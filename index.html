@@ -106,7 +106,7 @@
 		else {
 					let unix_time_of_visit = storage.getItem("unix_time_of_visit");
 					let current_unix_time = Date.now()
-					if (current_unix_time - unix_time_of_visit >= 24 * 3600) {
+					if (current_unix_time - unix_time_of_visit >= 24 * 3600 * 1000) {
 								document.getElementById("app").style.display="block";
 								storage.setItem("unix_time_of_visit", Date.now());
 						}
