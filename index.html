@@ -14,12 +14,16 @@
 	<p><i>a software developing company</i></p>
 	</header>
 <main>
+	<!-- TODO: inline-js >>> svelte or react -->
 	<center>
-		<div class="window" style="">
+		<div id="system" class="window" style="pointer-events: none;">
 			<div class="title-bar">
 			  <div class="title-bar-text">
-				G.system
+				G.system 
 			  </div>
+			  <div class="title-bar-controls">
+   				<button onClick="window.location.href='https://oschepkov.ru';" aria-label="Close"></button>
+  			  </div>
 			</div>
 			<div class="window-body">
 				<img src="img/xp.jpg">
@@ -35,6 +39,14 @@
 					<img height="42px" width="42px" src="apps/donut/donut.png">
 					<label for="donut"><b>Donut</b></label>
 				</div>
+				<div style="position: absolute; top: 70%; left: 65%" onClick="window.location.href='https://github.com/gaps-apps/about_us';">
+					<img height="42px" width="42px" src="apps/github/github.png">
+					<label for="donut"><b>GitHub</b></label>
+				</div>
+				<div style="position: absolute; top: 70%; left: 80%">
+					<img height="42px" width="42px" src="apps/sendmail/gmail.png" onClick="window.location.href='mailto:ivan@oschepkov.ru?subject=G.apps';">
+					<label for="donut"><b>Contact</b></label>
+				</div>
 				<div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
 					<div class="title-bar">
 						<div class="title-bar-text">
@@ -49,19 +61,19 @@
 						<p>Use arrows.</p>
 					</div>
 			    </div>
-				<div id="app" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
+				<div id="app" class="window" style="pointer-events: all; min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
 					<div class="title-bar">
 						<div class="title-bar-text">
 							Message of the Day 
 					  	</div>
 			  			<div class="title-bar-controls">
-   							<button onClick="document.getElementById('app').style = 'display: none;';" aria-label="Close"></button>
+   							<button onClick="document.getElementById('app').style = 'display: none;'; document.getElementById('system').style = 'pointer-events: all;'" aria-label="Close"></button>
   			  			</div>
 					</div>
 					<div class="window-body">
 					  <p style="align: left;"><em>If you cannot do great things, do small things in a great way.</em></p>
 					  <section class="field-row" style="justify-content: flex-end">
-						  <button onClick="document.getElementById('app').style.display = 'none';">OK</button>
+						  <button onClick="document.getElementById('app').style.display = 'none'; document.getElementById('system').style = 'pointer-events: all;';">OK</button>
 					  </section>
 					</div>
 			    </div>
