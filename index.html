@@ -81,6 +81,26 @@
 		</div>
 	</center>
 </main>
+	<script>
+	let storage = window.localStorage;
+	let visited = storage.getItem("visited");
+		if (visited == null) {
+			
+					storage.setItem("visited", "");
+					storage.setItem("unix_time_of_visit", Date.now());
+			}
+		else {
+					let unix_time_of_visit = storage.getItem("unix_time_of_visit");
+					let current_unix_time = Date.now()
+					if (current_unix_time - unix_time_of_visit <= 24 * 3600) {
+								document.getElementById("app").style.display="none";
+						}
+					else {
+								storage.setItem("unix_time_of_visit", Date.now());
+						}
+
+			}
+	</script>
 </body>
 </html>
 <!-- <a href="https://www.flaticon.com/free-icons/programmer" title="programmer icons">Programmer icons created by Eucalyp - Flaticon</a> -->
