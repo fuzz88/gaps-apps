@@ -109,27 +109,28 @@
 		</div>
 	</center>
 </main>
-	<script>
-	let storage = window.localStorage;
-	let visited = storage.getItem("visited");
-		if (visited == null) {
-			
-					storage.setItem("visited", "");
-					storage.setItem("unix_time_of_visit", Date.now());
-					document.getElementById("app").style.display = "block";
-			}
-		else {
-					let unix_time_of_visit = storage.getItem("unix_time_of_visit");
-					let current_unix_time = Date.now()
-					if (current_unix_time - unix_time_of_visit >= 24 * 3600 * 1000) {
-								document.getElementById("app").style.display="block";
-								storage.setItem("unix_time_of_visit", Date.now());
-						}
-					else {
-								document.getElementById("system").style = "pointer-events: all";
-							}
-			}
-	</script>
+<script>
+  let storage = window.localStorage;
+  let ut_visit = storage.getItem("ut_visit");
+	
+  if (ut_visit == null)
+  {
+    storage.setItem("ut_visit", Date.now());
+    document.getElementById("app").style.display = "block";
+  }
+  else
+  {
+    let ut_visit = storage.getItem("ut_visit");
+    let current_time = Date.now()
+    if (current_untime - ut_visit >= 24 * 3600 * 1000) {
+      document.getElementById("app").style.display="block";
+      storage.setItem("ut_visit", Date.now());
+    }
+    else {
+      document.getElementById("system").style = "pointer-events: all";
+    }
+  }
+</script>
 </body>
 </html>
 
