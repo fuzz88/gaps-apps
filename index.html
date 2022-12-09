@@ -122,11 +122,14 @@
   {
     let ut_visit = storage.getItem("ut_visit");
     let current_time = Date.now()
-    if (current_untime - ut_visit >= 24 * 3600 * 1000) {
+    
+    if (current_untime - ut_visit >= 24 * 3600 * 1000)
+    {
       document.getElementById("app").style.display="block";
       storage.setItem("ut_visit", Date.now());
     }
-    else {
+    else 
+    {
       document.getElementById("system").style = "pointer-events: all";
     }
   }
