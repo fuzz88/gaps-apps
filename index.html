@@ -1,136 +1,139 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Welcome to G.apps!</title>
-      <link rel="stylesheet" href="awsm.min.css">
-      <link rel="stylesheet" href="98.css">
-      <!-- <a href="https://www.flaticon.com/free-icons/programmer" title="programmer icons">Programmer icons created by Eucalyp - Flaticon</a> -->
-      <link rel="icon" type="image/png" href="programing.png">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-   <body>
-      <header>
-         <h1>Welcome to G.apps!</h1>
-         <p><i>a software developing company</i></p>
-      </header>
-      <main>
-         <!-- TODO: rewrite as svelte app, someday -->
-         <center>
-            <div id="system" class="window" style="pointer-events: none;">
-               <div class="title-bar">
-                  <div class="title-bar-text">
-                     G.system 
-                  </div>
-                  <div class="title-bar-controls">
-                     <button onClick="window.location.href='https://oschepkov.ru';" aria-label="Close"></button>
-                  </div>
-               </div>
-               <div class="window-body">
-                  <img src="img/xp.jpg">
-                  <div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').src = 'apps/gears/glxgears.html'; document.getElementById('gears_iframe').focus();">
-                     <img height="42px" width="42px" src="apps/gears/engineering.png">
-                     <label for="glxgears"><b>webglxgears</b></label>
-                  </div>
-                  <div style="position: absolute; top: 128px; left: 160px" onClick="document.getElementById('fib').style.display = 'block'; document.getElementById('fib_iframe').src = 'apps/fibonacci/index.html';">
-                     <img height="42px" width="42px" src="apps/fibonacci/fibonacci.png">
-                     <label for="fibonacci"><b>fibonacci</b></label>
-                  </div>
-                  <div style="position: absolute; top: 64px; left: 70%" onClick="//document.getElementById('donut').style.display = 'block'; document.getElementById('donut_iframe').src = 'apps/donut/index.html';">
-                     <img style="-webkit-filter: grayscale(1); filter: greyscale(1);" height="42px" width="42px" src="apps/donut/donut.png">
-                     <label style="color: darkgrey;" for="donut"><b>Donut</b></label>
-                  </div>
-                  <div style="position: absolute; top: 70%; left: 65%" onClick="window.location.href='https://github.com/gaps-apps/about_us';">
-                     <img height="42px" width="42px" src="apps/github/github.png">
-                     <label for="github"><b>GitHub</b></label>
-                  </div>
-                  <div style="position: absolute; top: 70%; left: 80%">
-                     <img height="42px" width="42px" src="apps/sendmail/gmail.png" onClick="window.location.href='mailto:ivan@oschepkov.ru?subject=G.apps';">
-                     <label for="contact"><b>Contact</b></label>
-                  </div>
-                  <div id="fib" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
-                     <div class="title-bar">
+    <head>
+        <title>Welcome to G.apps!</title>
+        <link rel="stylesheet" href="awsm.min.css">
+        <link rel="stylesheet" href="98.css">
+        <!-- <a href="https://www.flaticon.com/free-icons/programmer" title="programmer icons">Programmer icons created by Eucalyp - Flaticon</a> -->
+        <link rel="icon" type="image/png" href="programing.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <script>
+        window.addEventListener("load", () => {
+            console.log("Loaded");
+            let storage = window.localStorage;
+            let ut_visit = storage.getItem("ut_visit");
+            if (ut_visit == null)
+            {
+                storage.setItem("ut_visit", Date.now());
+                document.getElementById("message_box").style.display = "block";
+            }
+            else
+            {
+                let ut_visit = storage.getItem("ut_visit");
+                let current_time = Date.now()
+
+                if (current_time - ut_visit >= 24 * 3600 * 1000)
+                {
+                    storage.setItem("ut_visit", Date.now());
+                    document.getElementById("message_box").style.display = "block";
+                }
+                else 
+                {
+                    document.getElementById("system").style = "pointer-events: all";
+                }
+            }
+        });
+
+    </script>
+    <body>
+        <header>
+            <h1>Welcome to G.apps!</h1>
+            <p><i>a software developing company</i></p>
+        </header>
+        <main>
+            <!-- TODO: rewrite as svelte app, someday -->
+            <center>
+                <div id="system" class="window" style="pointer-events: none;">
+                    <div class="title-bar">
                         <div class="title-bar-text">
-                           go-fibonacci-wasm by Go Team [<a style="color:white; !important" href='https://go.dev/tour/concurrency/5'>A Tour of Go</a>]	
+                            G.system 
                         </div>
                         <div class="title-bar-controls">
-                           <button onClick="document.getElementById('fib').style.display = 'none';" aria-label="Close"></button>
+                            <button onClick="window.location.href='https://oschepkov.ru';" aria-label="Close"></button>
                         </div>
-                     </div>
-                     <div class="window-body">
-                        <iframe id="fib_iframe" src=""></iframe>
-                     </div>
-                  </div>
-                  <div id="donut" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
-                     <div class="title-bar">
-                        <div class="title-bar-text">
-                           donut [myself]
+                    </div>
+                    <div class="window-body">
+                        <img src="img/xp.jpg">
+                        <div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').src = 'apps/gears/glxgears.html'; document.getElementById('gears_iframe').focus();">
+                            <img height="42px" width="42px" src="apps/gears/engineering.png">
+                            <label for="glxgears"><b>webglxgears</b></label>
                         </div>
-                        <div class="title-bar-controls">
-                           <button onClick="document.getElementById('donut').style.display = 'none';" aria-label="Close"></button>
+                        <div style="position: absolute; top: 128px; left: 160px" onClick="document.getElementById('fib').style.display = 'block'; document.getElementById('fib_iframe').src = 'apps/fibonacci/index.html';">
+                            <img height="42px" width="42px" src="apps/fibonacci/fibonacci.png">
+                            <label for="fibonacci"><b>fibonacci</b></label>
                         </div>
-                     </div>
-                     <div class="window-body">
-                        <iframe id="donut_iframe" src=""></iframe>
-                     </div>
-                  </div>
-                  <div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
-                     <div class="title-bar">
-                        <div class="title-bar-text">
-                           webglxgears by David Timber [<a style="color: white; !important" href='https://github.com/ashegoulding/webglgears'>github.com</a>]
+                        <div style="position: absolute; top: 64px; left: 70%" onClick="//document.getElementById('donut').style.display = 'block'; document.getElementById('donut_iframe').src = 'apps/donut/index.html';">
+                            <img style="-webkit-filter: grayscale(1); filter: greyscale(1);" height="42px" width="42px" src="apps/donut/donut.png">
+                            <label style="color: darkgrey;" for="donut"><b>Donut</b></label>
                         </div>
-                        <div class="title-bar-controls">
-                           <button onClick="document.getElementById('glxgears').style.display = 'none';" aria-label="Close"></button>
+                        <div style="position: absolute; top: 70%; left: 65%" onClick="window.location.href='https://github.com/gaps-apps/about_us';">
+                            <img height="42px" width="42px" src="apps/github/github.png">
+                            <label for="github"><b>GitHub</b></label>
                         </div>
-                     </div>
-                     <div class="window-body">
-                        <iframe id="gears_iframe" src=""></iframe>
-                        <p>Use arrows.</p>
-                     </div>
-                  </div>
-                  <div id="app" class="window" style="display: none; pointer-events: all; min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
-                     <div class="title-bar">
-                        <div class="title-bar-text">
-                           Message of the Day 
+                        <div style="position: absolute; top: 70%; left: 80%">
+                            <img height="42px" width="42px" src="apps/sendmail/gmail.png" onClick="window.location.href='mailto:ivan@oschepkov.ru?subject=G.apps';">
+                            <label for="contact"><b>Contact</b></label>
                         </div>
-                        <div class="title-bar-controls">
-                           <button onClick="document.getElementById('app').style = 'display: none;'; document.getElementById('system').style = 'pointer-events: all;'" aria-label="Close"></button>
+                        <div id="fib" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
+                            <div class="title-bar">
+                                <div class="title-bar-text">
+                                    go-fibonacci-wasm by Go Team [<a style="color:white; !important" href='https://go.dev/tour/concurrency/5'>A Tour of Go</a>]	
+                                </div>
+                                <div class="title-bar-controls">
+                                    <button onClick="document.getElementById('fib').style.display = 'none';" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <div class="window-body">
+                                <iframe id="fib_iframe" src=""></iframe>
+                            </div>
                         </div>
-                     </div>
-                     <div class="window-body">
-                        <p style="align: left;"><em>If you cannot do great things, do small things in a great way.</em></p>
-                        <section class="field-row" style="justify-content: flex-end">
-                           <button onClick="document.getElementById('app').style.display = 'none'; document.getElementById('system').style = 'pointer-events: all;';">OK</button>
-                        </section>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </center>
-      </main>
-      <script>
-         let storage = window.localStorage;
-         let ut_visit = storage.getItem("ut_visit");
-         
-         if (ut_visit == null)
-         {
-           storage.setItem("ut_visit", Date.now());
-           document.getElementById("app").style.display = "block";
-         }
-         else
-         {
-           let ut_visit = storage.getItem("ut_visit");
-           let current_time = Date.now()
-           
-           if (current_time - ut_visit >= 24 * 3600 * 1000)
-           {
-             document.getElementById("app").style.display="block";
-             storage.setItem("ut_visit", Date.now());
-           }
-           else 
-           {
-             document.getElementById("system").style = "pointer-events: all";
-           }
-         }
-      </script>
-   </body>
+                        <div id="donut" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
+                            <div class="title-bar">
+                                <div class="title-bar-text">
+                                    donut [myself]
+                                </div>
+                                <div class="title-bar-controls">
+                                    <button onClick="document.getElementById('donut').style.display = 'none';" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <div class="window-body">
+                                <iframe id="donut_iframe" src=""></iframe>
+                            </div>
+                        </div>
+                        <div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
+                            <div class="title-bar">
+                                <div class="title-bar-text">
+                                    webglxgears by David Timber [<a style="color: white; !important" href='https://github.com/ashegoulding/webglgears'>github.com</a>]
+                                </div>
+                                <div class="title-bar-controls">
+                                    <button onClick="document.getElementById('glxgears').style.display = 'none';" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <div class="window-body">
+                                <iframe id="gears_iframe" src=""></iframe>
+                                <p>Use arrows.</p>
+                            </div>
+                        </div>
+                        <div id="message_box" class="window" style="display: none; pointer-events: all; min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
+                            <div class="title-bar">
+                                <div class="title-bar-text">
+                                    Message of the Day 
+                                </div>
+                                <div class="title-bar-controls">
+                                    <button onClick="document.getElementById('message_box').style = 'display: none;'; document.getElementById('system').style = 'pointer-events: all;'" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <div class="window-body"> 
+                                <p style="align: left;"><em>If you cannot do great things, do small things in a great way.</em></p>
+                                <section class="field-row" style="justify-content: flex-end">
+                                    <button onClick="document.getElementById('message_box').style.display = 'none'; document.getElementById('system').style = 'pointer-events: all;';">OK</button>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </main>
+    </body>
 </html>
