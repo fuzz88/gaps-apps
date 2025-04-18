@@ -12,6 +12,7 @@
       var gl;
       var wg;
       var uriParam;
+      var touchStartX, touchStartY;
 
       // External access to WebGL context, canvas element, and WebGLGears instance
       document.webglgears = {};
@@ -57,6 +58,41 @@
           case 'ArrowRight': wg.view_roty -= 5.0; break;
           case 'ArrowUp': wg.view_rotx += 5.0; break;
           case 'ArrowDown': wg.view_rotx -= 5.0; break;
+          }
+        }, false);
+
+        // Add touch gesture handlers for mobile
+        surface.addEventListener('touchstart', function (evt) {
+          if (evt.touches.length === 1) {
+            touchStartX = evt.touches[0].clientX;
+            touchStartY = evt.touches[0].clientY;
+          }
+        }, false);
+
+        surface.addEventListener('touchmove', function (evt) {
+          if (evt.touches.length === 1) {
+            const touchEndX = evt.touches[0].clientX;
+            const touchEndY = evt.touches[0].clientY;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+              if (deltaX > 0) {
+                wg.view_roty -= 5.0; // Simulate ArrowRight
+              } else {
+                wg.view_roty += 5.0; // Simulate ArrowLeft
+              }
+            } else {
+              if (deltaY > 0) {
+                wg.view_rotx -= 5.0; // Simulate ArrowDown
+              } else {
+                wg.view_rotx += 5.0; // Simulate ArrowUp
+              }
+            }
+
+            touchStartX = touchEndX;
+            touchStartY = touchEndY;
           }
         }, false);
       }, false);
