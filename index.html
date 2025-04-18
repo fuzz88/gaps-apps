@@ -55,15 +55,15 @@
                     </div>
                     <div class="window-body">
                         <img src="img/xp.jpg">
-                        <div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').src = 'apps/gears/glxgears.html'; document.getElementById('gears_iframe').focus();">
+                        <div style="position: absolute; top: 64px; left: 32px" onClick="document.getElementById('glxgears').style.display = 'block'; document.getElementById('gears_iframe').focus();">
                             <img height="42px" width="42px" src="apps/gears/engineering.png">
                             <label for="glxgears"><b>webglxgears</b></label>
                         </div>
-                        <div style="position: absolute; top: 128px; left: 160px" onClick="document.getElementById('fib').style.display = 'block'; document.getElementById('fib_iframe').src = 'apps/fibonacci/index.html';">
+                        <div style="position: absolute; top: 128px; left: 160px" onClick="document.getElementById('fib').style.display = 'block';">
                             <img height="42px" width="42px" src="apps/fibonacci/fibonacci.png">
                             <label for="fibonacci"><b>fibonacci</b></label>
                         </div>
-                        <div style="position: absolute; top: 64px; left: 70%" onClick="//document.getElementById('donut').style.display = 'block'; document.getElementById('donut_iframe').src = 'apps/donut/index.html';">
+                        <div style="position: absolute; top: 64px; left: 70%">
                             <img style="-webkit-filter: grayscale(1); filter: greyscale(1);" height="42px" width="42px" src="apps/donut/donut.png">
                             <label style="color: darkgrey;" for="donut"><b>Donut</b></label>
                         </div>
@@ -78,14 +78,14 @@
                         <div id="fib" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
                             <div class="title-bar">
                                 <div class="title-bar-text">
-                                   Tiny Wasm Example [<a style="color:white; !important" href='https://github.com/mohanson/pywasm/blob/master/examples/fib.wat'>github</a>]	
+                                   Tiny Wasm Example [<a style="color:white !important;" href='https://github.com/mohanson/pywasm/blob/master/examples/fib.wat'>github</a>]	
                                 </div>
                                 <div class="title-bar-controls">
                                     <button onClick="document.getElementById('fib').style.display = 'none';" aria-label="Close"></button>
                                 </div>
                             </div>
                             <div class="window-body">
-                                <iframe id="fib_iframe" src=""></iframe>
+                                <iframe id="fib_iframe" src="apps/fibonacci/index.html"></iframe>
                                 <p>118 bytes of Wasm32</p>
                             </div>
                         </div>
@@ -105,14 +105,14 @@
                         <div id="glxgears" class="window" style="min-width: 270px; position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); display: none;">
                             <div class="title-bar">
                                 <div class="title-bar-text">
-                                    webglxgears by David Timber [<a style="color: white; !important" href='https://github.com/ashegoulding/webglgears'>github.com</a>]
+                                    webglxgears by David Timber [<a style="color: white !important;" href='https://github.com/ashegoulding/webglgears'>github.com</a>]
                                 </div>
                                 <div class="title-bar-controls">
                                     <button onClick="document.getElementById('glxgears').style.display = 'none';" aria-label="Close"></button>
                                 </div>
                             </div>
                             <div class="window-body">
-                                <iframe id="gears_iframe" src=""></iframe>
+                                <iframe id="gears_iframe" src="apps/gears/glxgears.html"></iframe>
                                 <p>Use arrows or touch.</p>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="window-body"> 
-                                <p style="align: left;"><em>If you cannot do great things, do small things in a great way.</em></p>
+                                <p align="left"><em>If you cannot do great things, do small things in a great way.</em></p>
                                 <section class="field-row" style="justify-content: flex-end">
                                     <button onClick="document.getElementById('message_box').style.display = 'none'; document.getElementById('system').style = 'pointer-events: all;';">OK</button>
                                 </section>
